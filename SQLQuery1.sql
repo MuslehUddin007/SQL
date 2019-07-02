@@ -1,4 +1,26 @@
-create database SE224;
+create database Uni
+
+create table department(
+dept_id int not null unique,
+dept_name varchar (20),
+constraint pk_department primary key (dept_id)
+)
+
+--drop table dept;
+
+create table student(
+std_id varchar(35),
+std_name varchar(40),
+dpt_id int,
+constraint pk_std primary key(std_id),
+constraint fk_std_department foreign key (dpt_id) references department(dept_id)
+)
+
+create table course(
+course_code varchar(20),
+course_name varchar(40),
+constraint pk_course primary key (course_code)
+)
 
 create Table Person
 ( person_id int, 
@@ -13,12 +35,12 @@ select * from Person;
 
 -- to retrive all info
 
-select * from Dept;
+select * from department;
 
 -- to insert values
-insert into Dept(dept_name) values ('MCT');
+insert into department(dept_name) values ('MCT');
 
-insert into Dept(dept_name) values (40)  where dept_name = 'MCT';
+insert into department(dept_name) values (40)  where dept_name = 'MCT';
 
 insert into Person(person_id,person_name,person_age,person_address) values (1,'Rakib',25,'Dhaka');
 insert into Person(person_id,person_name,person_age,person_address) values (2,'Shakil',25,'Cumilla');
@@ -34,7 +56,7 @@ select person_name from Person where person_age>20;
 select person_address from Person where person_age<30;
 
 
-create Database Database1;
+--create Database Database1;
 
 
 create table Dept(
